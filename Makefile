@@ -1,4 +1,4 @@
-TARGET = cv
+TARGET = sud_cv
 
 AUX_FILES = \
 	$(TARGET).aux $(TARGET).log $(TARGET).out \
