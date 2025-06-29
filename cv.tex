@@ -1,0 +1,354 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper, 11pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+\bibliography{citations.bib}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+	
+	% non-numbered pages
+	\pagestyle{empty} 
+	
+	%----------------------------------------------------------------------------------------
+	%	TITLE
+	%----------------------------------------------------------------------------------------
+	
+	% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+		% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+		% \raisebox{-0.05\height}\faGithub\ username \ | \
+		% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+		% \end{tabularx}
+	
+	\begin{tabularx}{\linewidth}{@{} C @{}}
+		\Huge{Sudhanva Manjunath Athreya} \\[7.5pt]
+		\href{https://github.com/FoxHound0x00}{\raisebox{-0.05\height}\faGithub\ Github} \ $|$ \ 
+		\href{https://www.linkedin.com/in/athreya32262/}{\raisebox{-0.05\height}\faLinkedin\ LinkedIn} \ $|$ \ 
+		\href{https://foxhound0x00.github.io/}{\raisebox{-0.05\height}\faGlobe \ Website} \ $|$ \ 
+		\href{mailto:u1529299@hotmail.com}{\raisebox{-0.05\height}\faEnvelope \ Email ID} \ $|$ \ 
+		\href{tel:+91 910-817-1918}{\raisebox{-0.05\height}\faMobile \ +1 801-634-3173} \\
+	\end{tabularx}
+	
+	%----------------------------------------------------------------------------------------
+	% EXPERIENCE SECTIONS
+	%----------------------------------------------------------------------------------------
+	
+	%Interests/ Keywords/ Summary
+	\section{Research Interests}
+	
+	TinyML, Recommender systems, Statistical Theory, Multiview Geometry and 3D scene reconstruction \& understanding. 
+
+	
+	\section{Summary}
+ 
+	I'm a lifelong student with a burning passion for learning and infinite curiosity for how things work. I'm highly interested in technology and mathematics.
+	\\
+	%----------------------------------------------------------------------------------------
+	%	EDUCATION
+	%----------------------------------------------------------------------------------------
+	\section{Education}
+	\begin{tabularx}{\linewidth}{@{}l X@{}}	
+		
+		2020 - 2024 & Bachelor's in Computer Science at \textbf{Reva University, Bangalore} \hfill (GPA: 8.9/10) \\ 
+
+        2024 - 2026 & Master's in Computer Science at \textbf{University of Utah, Salt Lake City} \hfill 
+		
+	\end{tabularx}
+	
+
+	
+	%Experience
+	\section{Work Experience}
+
+
+	\begin{tabularx}{\linewidth}{ @{}l r@{} }
+		\textbf{Huntsman Mental Health Institute - Research Assistant} & \hfill Feb 2025 -  \\[3.75pt]
+		\multicolumn{2}{@{}X@{}}{
+			\begin{minipage}[t]{\linewidth}
+				\begin{enumerate}
+				    \item Building EHR and Genomic foundational models.
+				\end{enumerate}
+			\end{minipage}
+		}  
+	\end{tabularx}
+
+
+	\begin{tabularx}{\linewidth}{ @{}l r@{} }
+		\textbf{Siemens - Computer Vision Research Intern} & \hfill Jun 2023 - Jun 2024 \\[3.75pt]
+		\multicolumn{2}{@{}X@{}}{
+			\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+                    \item[--] EdgeAI : A research project where the bridged domains of ML and Compilers were explored. 
+
+                    \begin{enumerate}
+                        \item Created a unified file-format for Siemens for model storage and faster loading using protobuf.
+                        \item Created pipelines incorporating techniques such as chunking, memory-mapping \& lazy-loading to reduce memory-consumption during inference.
+                        \item Created inference and quantization pipelines. 
+                       
+                    \end{enumerate}
+					\item[--] AI4Safety Edge : A Siemens monitoring application for edge ecosystems.
+					\begin{enumerate}
+						\item Setup \href{https://developer.nvidia.com/deepstream-sdk}{Deepstream} pipeline and components on Jetson Orin Nano and Siemens Edge cameras.
+						\item Coupled a rule engine which recorded violations.
+						\item Quantized detection and zero-shot models and integrated it into the Deepstream pipeline.
+						\item Created Gstreamer plugins to integrate Owl-ViT into Deepstream.
+						\item Created a scene understanding pipeline using LVMs ( CLIP )
+                        \item Explored VisualSLAM, ORB-SLAM, SfM, Photogrammetry, COLMAP, NeRF, Gaussian Splatting for 3d-Scene reconstruction.  
+					\end{enumerate}
+					\item[--] AI4Safety : A Siemens Surveillance product for factories and logistics environments.
+					\begin{enumerate}
+						\item Dataset curation, training \& evaluation.
+                        \item Created custom Discrete Correlation Filter-based tracker and integrated it with the Deepstream pipeline.
+						\item Model optimization - Pruning, Quantization \& Palletization
+						\item Data de-duplication, Denoising \& Augmentation pipelines
+						\item Actively contributed in the creation of a rule-engine
+                        \item Created Homography pipeline to perform object tracking in a BEV (Birds-Eye-View) plane.
+						\item Created and tested Deepstream plugins
+					\end{enumerate}
+					\item [--] SpeCT Analysis : Scintillation Crystals defect analysis framework. 
+					\begin{enumerate}
+						\item Created a MLops dasboard, API, datastore and containerized the application. 
+					\end{enumerate}
+					
+					\item[--] Domains : Computer Vision, Deep Learning, Software development
+					\item[--] Technologies : OpenCV, Nvidia Deepstream, Nvidia TensorRT, YOLO, Pytorch, C++, Docker, Kafka
+				\end{itemize}
+			\end{minipage}
+		}  
+	\end{tabularx}
+	
+	\begin{tabularx}{\linewidth}{ @{}l r@{} }
+		\textbf{Tata Elxsi - NLP Intern} & \hfill Jul 2022 - Oct 2022 \\ [3.75pt]
+		\multicolumn{2}{@{}X@{}}{
+			\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+					\item[--] LMS Recommendation System : Recommendation system for Tata Elxsi LMS platform
+					\begin{enumerate}
+						\item Used \href{https://doi.org/10.1109/ICDM.2011.134}{SLiM (Sparse Linear Methods)} for collaborative-filtering. 
+						\item Creation of Responsive React UI for the recommendation page. 
+						\item Creation of Flask API, mongoDB user database integration \& containerization.
+					\end{enumerate}
+					\item[--] VideoPeek 
+					\begin{enumerate}
+						\item Created a search page similar to  \href{https://developers.google.com/search/blog/2021/07/new-way-key-moments}{Google Key moments} for LMS platform
+						\item Made use of Haystack framework \& Milvus DB to setup semantic search pipeline
+						\item Setup Whisper pipeline to transcribe new courses \& add it to the vector DB
+					\end{enumerate}        
+					\item[--] Domains : NLP, Software development
+					\item[--] Technologies : Python, Haystack, Pytorch, ReactJS, MongoDB
+				\end{itemize}
+			\end{minipage}
+		}
+	\end{tabularx}
+	
+	\begin{tabularx}{\linewidth}{ @{}l r@{} }
+		\textbf{Reva University - Junior Research Fellow @ NLP Lab} & \hfill Dec 2022 - May 2024 \\[3.75pt]
+		\multicolumn{2}{@{}X@{}}{
+			\begin{minipage}[t]{\linewidth}
+				\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+					\item[--] Revival of Sharada scripture (funded by DST under SHRI)
+					\begin{enumerate}
+						\item Ongoing project which aims to revive Sharada scripture used in the Kashmir region by the Kashmiri Pandits to write Sanskrit and Kashmiri Manuscripts
+						\item Creation of HTR system using CTPN-CRNN \& CTC loss.
+						\item Creation of custom customized augmentation pipeline specific to handwritten text.
+						\item Transliteration of Sharada Scripture.
+						\item Creation of a web portal for awareness. 
+					\end{enumerate}
+					\item[--] Domains : Computer Vision, NLP, Deep Learning 
+					\item[--] Technologies : OpenCV, Tesseract, YOLO, Pinecone, Tensorflow, Pytorch, Pillow
+				\end{itemize}
+			\end{minipage}
+		}
+	\end{tabularx}
+	
+	%Projects
+	\section{Projects}
+	
+	\begin{tabularx}{\linewidth}{ @{}l r@{} }
+		
+		% \textbf{Sharada Preservation} & \hfill \href{https://github.com/sud0x00/SharadaProject-Documentation/}{Domain : CVPR, Deep Learning, NLP, Web Development} \\[2.75pt]
+		% \multicolumn{2}{@{}X@{}}{ Ongoing project which is funded by the DST. The project aims to revive the ancient Sharada scripture which was used in the Kashmir region by the Kashmiri Pandits to write Sanskrit and Kashmiri Manuscripts. A CRNN with CTC loss has been implemented and tested. Working on a pipeline which has robust augmentations for low resource handwritten languages and a transformer based architecture (one similar to TrOCR) inplace of the CRNN. The annotated dataset is created using the LabelMe tool.   }  
+		% \\
+		% \\
+		\textbf{\href{https://github.com/sud0x00/DS-Checker}{DS-Checker}} & \hfill {Domain : NLP, Software Development} \\[2.75pt]
+		\multicolumn{2}{@{}X@{}}{Created as a year-end Project (1st year Bachelors). It calculates the similarity between documents and displays it. It was mainly created to check the plagiarism among the project papers submitted by the students. Initially, the documents were embedded using TF-IDF values and then passed through a cosine similarity function to determine their similarity. The system allowed users to upload documents through a PHP-based website. Later, the project was migrated to utilize Longformer embeddings, and the user interface was revamped using streamlit.}
+		\\
+		\\
+		\textbf{\href{https://github.com/sud0x00/BigLens}{Big Lens}} & \hfill {Domain : Computer Vision, Deep Learning, Web Development} \\[2.75pt]
+		\multicolumn{2}{@{}X@{}}{ Created as a year-end Project (2nd year Bachelors).  This open-source reverse-image search engine was designed to emulate popular services like Google, Yandex, Bing, and Tineye. Initially, it made use of APIs of previously mentioned services. Eventually, the project was transitioned to employ Content-Based Image Retrieval (CBIR), similar to the approach used by Yandex. A VGG19 model was for feature extraction and streamlit interface could be used to interact with the model. hsnwlib along with sqlite was integrated which allows for a fast nearest neighbor search. }  
+		\\
+		\\
+		
+		\textbf{\href{https://github.com/sud0x00/Samskritam}{Kailāsaḥ}} & \hfill {Domain : NLP, Deep Learning, Web Development} \\[2.75pt]
+		\multicolumn{2}{@{}X@{}}{Created as a project for the Sambhasha Sanskrit Conference. Kailāsaḥ is a website which performs Sanskrit Sandhi split. Sandhi's are similar to contraction in English, used extensively in Sanskrit to speak quickly and smoothly by condensing large sentences. It is one of the projects done for DST, Govt. of India. It makes use of a CRNN model to perform word splitting. The project has a streamlit interface. It also provides with the required contextual meaning of base words. }  
+		\\
+		\\
+
+		\textbf{\href{https://github.com/sud0x00/Hestia}{Hestia}} & \hfill {Domain : NLP, Software Development} \\[2.75pt]
+		\multicolumn{2}{@{}X@{}}{Hestia is an extension for your browser which allows you to search your bookmarks and bookmark folders.
+			The extension can be downloaded from the Firefox add-on store. The extension performs a search on the bookmarks to return the results}  
+
+		\\
+	\end{tabularx}
+	
+	
+	%----------------------------------------------------------------------------------------
+	%	PUBLICATIONS
+	%----------------------------------------------------------------------------------------
+	\section{Publications}
+	\begin{refsection}[citations.bib]
+		\nocite{*}
+		\printbibliography[heading=none]
+	\end{refsection}
+	
+	\section{Events}
+	\begin{tabularx}{\linewidth}{@{}l X@{}}
+		Paninian Grammar and its Applications &  \normalsize{Demonstrated Kailāsaḥ tool (14th Feb 2023)}
+		\\
+		\\
+		SIEMENS Shift healthcare hackathon finalist (Nov 2022)  &  \normalsize{Led a team where we built a hospital bed queueing and allocation linear model. We also build a React based dashboard to manage the hospital. (18th Nov 2022)}
+		\\
+		\\ 
+		% ICACI Conference 2022 (17th Dec 2022)  &  \normalsize{Presented the paper "Using Deep Learning Techniques to Evaluate Lung Cancer Using CT Images" }
+		% \\
+		% \\
+		Generative AI and Cybersecurity FDP Seminar (Jul 2023)   &  \normalsize{Gave a talk on Zero-shot learning in Computer Vision Applications during the 5-day Faculty Development Program. }
+		\\
+		\\
+	\end{tabularx}
+	
+	\section{Honors \& Grants }
+	
+	\begin{tabularx}{\linewidth}{ @{}l r@{} }
+		\textbf{DST SHRI 2022} & \hfill \href{https://revaeduin.s3.ap-south-1.amazonaws.com/uploads/images/63bfa2afc35011673503407.pdf}{} \\[2.75pt]
+		
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+				\item[--] DSP/TDT/SHRI-14/2021
+				\item[--] Date: 13 December 2021
+				\item[--] An Artificial Intelligence based system for the preservation,restoration and translation of the prominent Sharda literature of Jammu and Kashmir
+				\item[--] Working under Dr. Nimrita Koul on the project funded by the Govt. Of India, Department of Science and Technology(DST) - Science and Heritage Research Initiative (SHRI)
+			\end{itemize}
+		\end{minipage}
+		
+	\end{tabularx}
+	\section{Others}
+	\begin{tabularx}{\linewidth}{@{}l X@{}}
+		JLPT N5 &  \normalsize{ 2022 - Japanese Language Proficiency Test}\\
+	\end{tabularx}
+	
+	\vfill
+	\center{\footnotesize Last updated: \today}
+	
+\end{document}
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+\end{document}
