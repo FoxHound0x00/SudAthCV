@@ -92,6 +92,14 @@
 \setlength\bibitemsep{1em}
 \bibliography{citations.bib}
 
+%make the publication title itself the hyperlink, and drop the trailing raw URL
+\newbibmacro*{string+url}[1]{%
+	\iffieldundef{url}{#1}{\expandafter\href\expandafter{\thefield{url}}{#1}}}
+\DeclareFieldFormat{title}{\usebibmacro{string+url}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]%
+	{title}{\usebibmacro{string+url}{\mkbibquote{#1\isdot}}}
+\ExecuteBibliographyOptions{url=false,doi=false}
+
 %for social icons
 \usepackage{fontawesome5}
 
@@ -132,10 +140,10 @@
 	%Interests/ Keywords/ Summary
 	\section{Research Interests}
 
-	Foundational Machine Learning, Recommender Systems, TinyML, Computational Topology, Computational Biology, AI in Healthcare 
+	Foundational Machine Learning, Reinforcement Learning, Recommender Systems, Computational Topology, Sequential Decision-Making 
 	
 	\section{Summary}
-	I'm a lifelong student who's highly interested in technology and mathetmatics.
+	I'm a lifelong student who's highly interested in technology and mathematics.
 
 	%----------------------------------------------------------------------------------------
 	%	EDUCATION
@@ -145,7 +153,7 @@
 		
 		2020 - 2024 & Bachelor's in Computer Science at \textbf{Reva University, Bangalore} \hfill (GPA: 8.9/10) \\ 
 
-        2024 - 2026 & Master's in Computer Science at \textbf{University of Utah, Salt Lake City} \hfill (GPA: 3.8/4) \\
+        2024 - Present & PhD in Computer Science at \textbf{University of Utah, Salt Lake City} \hfill (GPA: 3.8/4) \\
 		
 	\end{tabularx}
 	
@@ -153,7 +161,6 @@
 	
 	%Experience
 	\section{Work Experience}
-
 
 	\begin{tabularx}{\linewidth}{ @{}l r@{} }
 		\textbf{Scientific Computing and Imaging (SCI) Institute - Student Researcher} & \hfill Jan 2025 - Present \\[3.75pt]
@@ -178,6 +185,7 @@
 				\begin{enumerate}
 				    \item Developed a Mixture-of-Experts (MoE) based foundational model to efficiently predict patient timelines from EHR data.
 				    \item Co-authored and presented a poster at AI Summit 2025 with Matt Christenson and Prof. Warren Pettine, titled "Efficient EHR Foundational Models: A Mixture-of-Experts Approach for Patient Timeline Prediction".
+				    \item Presented a poster and lightning talk at Utah AI Convergence 2026, titled "An EHR foundation model learns a clinical geometry", showing that next-token pretraining on MIMIC-IV alone recovers clinical structure in the embedding space: drug classes sit nearest the diseases they treat (83\%, $p < 0.001$), lab and BMI values form ordered low-to-high axes ($|\rho|$ 0.89--0.98), and elapsed-time tokens are spaced logarithmically ($R^2$ 0.85 vs 0.18).
 				\end{enumerate}
 			\end{minipage}
 		}  
@@ -202,6 +210,11 @@
 			\begin{minipage}[t]{\linewidth}
 				\begin{enumerate}
 				    \item Working under Prof. Warren Pettine to build EHR and Genomic Foundational models.
+				    \item Reproduced and benchmarked EHR foundation models on MIMIC-IV FHIR using the EHRMamba and Odyssey toolkits, evaluating against XGBoost, LSTM, BigBird and Multibird baselines on mortality, length-of-stay and readmission prediction.
+				    \item Built the tokenization pipeline mapping FHIR resources (diagnoses, procedures, medications, lab events) into time-ordered clinical token streams with visit and time-interval tokens, supporting both masked-language-modelling and next-token pretraining objectives.
+				    \item Ran discharge and length-of-stay prediction experiments with smaller models (XGBoost, TabPFN, Med-BERT, ClinicalBERT) on MIMIC-IV, focusing on cohort construction and feature modelling.
+				    \item Scheduled distributed training jobs on the lab's SLURM HPC cluster and profiled model latency, memory, FLOPs and parameter counts with the PyTorch Profiler.
+				    \item Surveyed the EHR foundation-model literature (ETHOS, Clinical Language Models, and Foundational Models for EHRs) to guide the lab's architecture and evaluation choices.
 				\end{enumerate}
 			\end{minipage}
 		}  
